@@ -1,0 +1,7 @@
+---
+- name: "A very basic test"
+  hosts: all
+  tasks:
+    - name: "Debugging me"
+      debug:
+        msg: "Nothing to see here"
