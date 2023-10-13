@@ -15,4 +15,4 @@
       when:
         - inventory_hostname == 'localhost'
         - tower_job_id is defined
-      no_log: yes
+      no_log: no
