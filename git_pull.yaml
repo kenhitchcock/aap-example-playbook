@@ -1,0 +1,18 @@
+---
+- name: "Test git checkout"
+  hosts: localhost
+  tasks:
+    - name: checkout source code
+      environment:
+        TMPDIR: "{{playbook_dir}}/git_tmp"
+      git:
+        repo: "{{ansible_inventory_repo_url}}"
+        dest: "{{ansible_inventory_repo_dir}}"
+        version: "{{ ansible_vault_branch | default('main') }}"
+        depth: 1
+        force: yes
+        accept_hostkey: yes
+      when:
+        - inventory_hostname == 'localhost'
+        - tower_job_id is defined
+      no_log: yes
