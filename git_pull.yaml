@@ -5,7 +5,7 @@
     - name: checkout source code
       environment:
         TMPDIR: "{{playbook_dir}}/git_tmp"
-      git:
+      ansible.builtin.git:
         repo: "{{ansible_inventory_repo_url}}"
         dest: "{{ansible_inventory_repo_dir}}"
         version: "{{ ansible_vault_branch | default('main') }}"
